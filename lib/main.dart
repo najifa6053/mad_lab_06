@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mad_lab_06/app_body.dart';
 
 void main() {
   runApp(const Flutter());
@@ -13,25 +14,46 @@ class Flutter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              Container(
+                height: 70,
+                child: DrawerHeader(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(Icons.tiktok),
+                    ElevatedButton(
+                      onPressed: () {}, 
+                      child: Icon(Icons.close),
+                      ),
+                    ],
+                  )
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text("Home"),
+                trailing: ElevatedButton(
+                  onPressed: () {}, 
+                  child: 
+                ),
+              ),
+            ],
+          )
+        )
+         
+          //endDrawer: Drawer(
+          
         appBar: AppBar(
           title: Text("Advanced UI - LAB 06"),
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              CachedNetworkImage(
-                imageUrl: 
-                    "https://as2.ftcdn.net/v2/jpg/11/17/87/31/1000_F_1117873193_M5pjieKHcp1szeSxu65jclh6NXR6DLN3.jpg",
-                placeholder: (context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-              ),
-              
-            ],
-            ),
+        body: Appbody(),
         ),
-        ),
-      );
+    );
   }
 }

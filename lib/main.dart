@@ -1,59 +1,78 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:lab_4/app_body.dart';
+import 'package:lab_4/app_body.dart';
 import 'package:mad_lab_06/app_body.dart';
 
 void main() {
-  runApp(const Flutter());
+  runApp(MyApp());
 }
 
-
-class Flutter extends StatelessWidget {
-  const Flutter({super.key});
-
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        
         drawer: Drawer(
+          backgroundColor: Colors.amber[100],
           child: ListView(
             children: [
-              Container(
-                height: 70,
+              SizedBox(
+                height: 150,
                 child: DrawerHeader(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(Icons.tiktok),
-                    ElevatedButton(
-                      onPressed: () {}, 
-                      child: Icon(Icons.close),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Icon(Icons.close),
                       ),
                     ],
-                  )
+                  ),
                 ),
               ),
               ListTile(
+                title: Text('Home'),
                 leading: Icon(Icons.home),
-                title: Text("Home"),
-                trailing: ElevatedButton(
-                  onPressed: () {}, 
-                  child: 
-                ),
+                onTap: () {},
+                focusColor: Colors.amber[200]!,
+              ),
+              ListTile(
+                title: Text('Inbox'),
+                leading: Icon(Icons.inbox),
+                onTap: () {},
+                trailing: Text("40"),
+              ),
+              ListTile(
+                title: Text('email'),
+                leading: Icon(Icons.email),
+                onTap: () {},
+                trailing: Text("120"),
+              ),
+              ListTile(
+                title: Text('Read Mail'),
+                leading: Icon(Icons.mark_email_read),
+                onTap: () {},
               ),
             ],
-          )
-        )
-         
-          //endDrawer: Drawer(
-          
+          ),
+        ),
         appBar: AppBar(
-          title: Text("Advanced UI - LAB 06"),
-          backgroundColor: Colors.blue,
+          title: Text(
+            'Advance UI Design',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           centerTitle: true,
+          backgroundColor: Colors.amber,
         ),
         body: Appbody(),
-        ),
+      ),
     );
   }
 }
